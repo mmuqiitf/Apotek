@@ -17,7 +17,7 @@ import java.util.List;
  * @author ALIK
  */
 public class ConvertJabatanToObject {
-    public String[][] getPasien(){
+    public String[][] getJabatan(){
         List<Jabatan> myJ = new ArrayList<Jabatan>();
         ExecuteJabatan ej = new ExecuteJabatan();
         myJ = ej.getAllData();

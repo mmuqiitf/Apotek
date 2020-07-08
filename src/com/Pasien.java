@@ -25,7 +25,12 @@ public class Pasien {
         this.alamat = alamat;
         this.no_telp = no_telp;
     }
-
+    
+    public Pasien(int id_pasien, String nama) {
+        this.id_pasien = id_pasien;
+        this.nama = nama;
+    }
+    
     public Pasien() {
     }
 
@@ -63,7 +68,7 @@ public class Pasien {
 
     @Override
     public String toString() {
-        return "Pasien{" + "id_pasien=" + id_pasien + ", nama=" + nama + ", alamat=" + alamat + ", no_telp=" + no_telp + '}';
+        return id_pasien + ": " + nama;
     }
     
     

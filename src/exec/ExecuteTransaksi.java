@@ -6,7 +6,7 @@
 package exec;
 
 import com.Jabatan;
-import com.Supplier;
+import com.Transaksi;
 import db.ConnectionManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,33 +21,36 @@ import java.util.logging.Logger;
  *
  * @author ALIK
  */
-public class ExecuteJabatan {
-    public List<Jabatan> getAllData(){
-        String query = "select * from jabatan";
+public class ExecuteTransaksi {
+    public List<Transaksi> getAllData(){
+        String query = "select * from transaksi";
         ConnectionManager conMan = new ConnectionManager();
-        List<Jabatan> lsJabatan = new ArrayList<>();
+        List<Transaksi> lsTransaksi = new ArrayList<>();
         Connection conn = conMan.logOn();
         try {
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(query);
             while(rs.next()){
-                Jabatan j = new Jabatan();
-                j.setId_jabatan(rs.getInt("id_jabatan"));
-                j.setNama(rs.getString("nama"));
-                j.setKeterangan(rs.getString("keterangan"));
-                lsJabatan.add(j);
+                Transaksi t = new Transaksi();
+                t.setId_transaksi(rs.getInt("id_transaksi"));
+                t.setId_obat(rs.getInt("id_obat"));
+                t.setId_pasien(rs.getInt("id_pasien"));
+                t.setId_pegawai(rs.getInt("id_pegawai"));
+                t.setQty(rs.getInt("qty"));
+                lsTransaksi.add(t);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ExecuteJabatan.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExecuteTransaksi.class.getName()).log(Level.SEVERE, null, ex);
         }
         conMan.logOff();
-        return lsJabatan;
+        return lsTransaksi;
     }
     
-    public int insertData(Jabatan j){
+    public int insertData(Transaksi t){
         int hasil = 0;
-        String query ="insert into jabatan(nama, keterangan) values"
-                + "('"+ j.getNama()+ "', '" + j.getKeterangan() +"')";
+        String query ="insert into transaksi(id_obat, id_pasien, id_pegawai, qty) values"
+                + "("+ t.getId_obat()+ ", " + t.getId_pasien() + ", " + t.getId_pegawai()
+                + ", " + t.getQty()+")";
         ConnectionManager conMan = new ConnectionManager();
         Connection conn = conMan.logOn();
         try {
@@ -55,14 +58,14 @@ public class ExecuteJabatan {
             hasil = stm.executeUpdate(query);
             System.out.println(query);
         } catch (SQLException ex) {
-            Logger.getLogger(ExecuteJabatan.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExecuteTransaksi.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println(query);
         }
         conMan.logOff();
         return hasil;
     }
-    public int hapusData(int id_jabatan){
-        String query = "delete from jabatan where id_jabatan="+ id_jabatan;
+    public int hapusData(int id_transaksi){
+        String query = "delete from transaksi where id_transaksi="+ id_transaksi;
         int hasil = 0;
         ConnectionManager conMan = new ConnectionManager();
         Connection conn = conMan.logOn();
@@ -70,24 +73,25 @@ public class ExecuteJabatan {
             Statement stm = conn.createStatement();
             hasil = stm.executeUpdate(query);
         } catch (SQLException ex) {
-            Logger.getLogger(ExecuteJabatan.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExecuteTransaksi.class.getName()).log(Level.SEVERE, null, ex);
         }
         conMan.logOff();
         return hasil;
     }
-    public int ubahData(Jabatan j){
+    public int ubahData(Transaksi t){
         int hasil = 0;
         ConnectionManager conMan = new ConnectionManager();
         Connection conn = conMan.logOn();
-        String query = "Update jabatan set nama='"+j.getNama()+"', no_telp='"+j.getKeterangan() + 
-                "' where id_jabatan="+ j.getId_jabatan();
+        String query = "Update transaksi set id_obat="+t.getId_obat()+", id_pasien="+t.getId_pasien() 
+                +", id_pegawai="+t.getId_pegawai() +", qty="+t.getQty()+ 
+                " where id_transaksi="+ t.getId_transaksi();
         try {
             Statement stm = conn.createStatement();
             hasil = stm.executeUpdate(query);
             System.out.println(query);
         } catch (SQLException ex) {
             System.err.println(query);
-            Logger.getLogger(ExecuteJabatan.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExecuteTransaksi.class.getName()).log(Level.SEVERE, null, ex);
         }
         return hasil;
     }

@@ -37,8 +37,14 @@ public class Obat {
     }
 
     public Obat() {
+        
     }
-
+    
+    public Obat(int id_obat, String nama){
+        this.id_obat = id_obat;
+        this.nama = nama;
+        
+    }
     public int getId_obat() {
         return id_obat;
     }
@@ -113,7 +119,7 @@ public class Obat {
 
     @Override
     public String toString() {
-        return "Obat{" + "id_obat=" + id_obat + ", harga=" + harga + ", stok=" + stok + ", id_golongan=" + id_golongan + ", id_supplier=" + id_supplier + ", nama=" + nama + ", dosis=" + dosis + ", keterangan=" + keterangan + ", satuan=" + satuan + '}';
+        return id_obat + ": " + nama;
     }
     
 }

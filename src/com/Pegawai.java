@@ -33,6 +33,11 @@ public class Pegawai {
         this.alamat = alamat;
         this.level = level;
     }
+    
+    public Pegawai(int id_pegawai, String nama){
+        this.id_pegawai = id_pegawai;
+        this.nama = nama;
+    }
 
     public Pegawai() {
     }
@@ -103,6 +108,6 @@ public class Pegawai {
 
     @Override
     public String toString() {
-        return "Pegawai{" + "id_pegawai=" + id_pegawai + ", id_jabatan=" + id_jabatan + ", username=" + username + ", password=" + password + ", nama=" + nama + ", no_telp=" + no_telp + ", alamat=" + alamat + ", level=" + level + '}';
+        return id_pegawai + ": " + nama;
     }
 }
