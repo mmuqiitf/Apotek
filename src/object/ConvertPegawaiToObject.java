@@ -22,7 +22,7 @@ public class ConvertPegawaiToObject {
         String[][] dataPegawai = new String[myP.size()][8];
         int i=0;
         for(Pegawai p : myP){
-            dataPegawai[i][0]= ""+p.getId_jabatan();
+            dataPegawai[i][0]= ""+p.getId_pegawai();
             dataPegawai[i][1]= p.getUsername();
             dataPegawai[i][2]= p.getPassword();
             dataPegawai[i][3]= p.getNama();

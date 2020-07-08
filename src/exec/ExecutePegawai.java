@@ -87,7 +87,7 @@ public class ExecutePegawai {
         String query = "Update pegawai set username='"+p.getUsername()+"', password='"+p.getPassword()+
                 "', nama='"+p.getNama()+ "', no_telp='"+ p.getNo_telp()+  
                 "', alamat='" + p.getAlamat() + "', id_jabatan=" + p.getId_jabatan()
-                +"' where id_pegawai="+p.getId_pegawai();
+                +" where id_pegawai="+p.getId_pegawai();
         try {
             Statement stm = conn.createStatement();
             hasil = stm.executeUpdate(query);
