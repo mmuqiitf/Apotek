@@ -11,12 +11,14 @@ import com.Obat;
 import com.Pasien;
 import com.Pegawai;
 import com.Supplier;
+import com.Transaksi;
 import db.ConnectionManager;
 import exec.ExecuteJabatan;
 import exec.ExecuteObat;
 import exec.ExecutePasien;
 import exec.ExecutePegawai;
 import exec.ExecuteSupplier;
+import exec.ExecuteTransaksi;
 import java.awt.CardLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -365,6 +367,11 @@ public class Main extends javax.swing.JFrame {
         btnJabatan.setFocusable(false);
         btnJabatan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnJabatan.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnJabatan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJabatanActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnJabatan);
 
         btnTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/wallet.png"))); // NOI18N
@@ -622,38 +629,36 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(pnlObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbbGolonganObat, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlObatLayout.createSequentialGroup()
-                        .addGroup(pnlObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlObatLayout.createSequentialGroup()
-                                .addGroup(pnlObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNamaObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtHargaObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDosisObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtStokObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSatuanObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(47, 47, 47))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlObatLayout.createSequentialGroup()
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(pnlObatLayout.createSequentialGroup()
-                                .addGroup(pnlObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbbSupplierObat, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pnlObatLayout.createSequentialGroup()
-                                        .addComponent(btnSubmitObat)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnUpdateObat)))
-                                .addGap(18, 18, 18))
-                            .addGroup(pnlObatLayout.createSequentialGroup()
-                                .addComponent(btnDeleteObat)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pnlObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlObatLayout.createSequentialGroup()
+                            .addGroup(pnlObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNamaObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtHargaObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDosisObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtStokObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSatuanObat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(37, 37, 37))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnlObatLayout.createSequentialGroup()
+                            .addGroup(pnlObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cbbSupplierObat, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(pnlObatLayout.createSequentialGroup()
+                                    .addComponent(btnSubmitObat)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnUpdateObat)))
+                            .addGap(8, 8, 8))
+                        .addGroup(pnlObatLayout.createSequentialGroup()
+                            .addComponent(btnDeleteObat)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         pnlObatLayout.setVerticalGroup(
             pnlObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3)
             .addGroup(pnlObatLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(pnlObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -694,6 +699,10 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnDeleteObat)
                 .addContainerGap(236, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlObatLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
         );
 
         pnlUtama.add(pnlObat, "cardObat");
@@ -1048,8 +1057,18 @@ public class Main extends javax.swing.JFrame {
         });
 
         btnUpdateTransaksi.setText("Update");
+        btnUpdateTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateTransaksiActionPerformed(evt);
+            }
+        });
 
         btnDeleteTransaksi.setText("Delete");
+        btnDeleteTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteTransaksiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlTransaksiLayout = new javax.swing.GroupLayout(pnlTransaksi);
         pnlTransaksi.setLayout(pnlTransaksiLayout);
@@ -1523,6 +1542,20 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSubmitTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitTransaksiActionPerformed
         // TODO add your handling code here:
+        int id_obat = ((Obat)cbbNamaObat.getSelectedItem()).getId_obat();
+        int id_pasien = ((Pasien)cbbNamaPasien.getSelectedItem()).getId_pasien();
+        int id_pegawai = ((Pegawai)cbbNamaPegawai.getSelectedItem()).getId_pegawai();
+        int qty = Integer.parseInt(txtQty.getText());
+        Transaksi t = new Transaksi(id_obat, id_pasien, id_pegawai, qty);
+        ExecuteTransaksi ex = new ExecuteTransaksi();
+        int hasil = ex.insertData(t);
+        if(hasil >0){
+            JOptionPane.showMessageDialog(null, "Data berhasil di simpan");
+            setDataTransaksi();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Data gagal di simpan");
+        }
     }//GEN-LAST:event_btnSubmitTransaksiActionPerformed
 
     private void tblTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTransaksiMouseClicked
@@ -1539,6 +1572,43 @@ public class Main extends javax.swing.JFrame {
         cbbNamaPasien.setSelectedIndex(Integer.parseInt(id_pasien)-1);
         cbbNamaPegawai.setSelectedIndex(Integer.parseInt(id_pegawai)-1);
     }//GEN-LAST:event_tblTransaksiMouseClicked
+
+    private void btnUpdateTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateTransaksiActionPerformed
+        // TODO add your handling code here:
+        int id_obat = ((Obat)cbbNamaObat.getSelectedItem()).getId_obat();
+        int id_pasien = ((Pasien)cbbNamaPasien.getSelectedItem()).getId_pasien();
+        int id_pegawai = ((Pegawai)cbbNamaPegawai.getSelectedItem()).getId_pegawai();
+        int qty = Integer.parseInt(txtQty.getText());
+        Transaksi t = new Transaksi(this.id_transaksi, id_obat, id_pasien, id_pegawai, qty);
+        ExecuteTransaksi ex = new ExecuteTransaksi();
+        int hasil = ex.ubahData(t);
+        if(hasil >0){
+            JOptionPane.showMessageDialog(null, "Data berhasil di ubah");
+            setDataTransaksi();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Data gagal di ubah");
+        }
+    }//GEN-LAST:event_btnUpdateTransaksiActionPerformed
+
+    private void btnDeleteTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteTransaksiActionPerformed
+        // TODO add your handling code here:
+        ExecuteTransaksi ex = new ExecuteTransaksi();
+        int hasil = ex.hapusData(this.id_transaksi);
+        if(hasil >0){
+            JOptionPane.showMessageDialog(null, "Data berhasil di hapus");
+            setDataTransaksi();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Data gagal di hapus");
+        }
+    }//GEN-LAST:event_btnDeleteTransaksiActionPerformed
+
+    private void btnJabatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJabatanActionPerformed
+        // TODO add your handling code here:
+        cl = (CardLayout) pnlUtama.getLayout();
+        cl.show(pnlUtama, "cardJabatan");
+    }//GEN-LAST:event_btnJabatanActionPerformed
 
     /**
      * @param args the command line arguments
