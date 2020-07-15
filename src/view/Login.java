@@ -46,7 +46,6 @@ public class Login extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,8 +78,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("jLabel4");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,13 +95,8 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(159, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(231, 231, 231))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(136, 136, 136))))
+                .addComponent(jLabel3)
+                .addGap(231, 231, 231))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +113,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pack();
@@ -146,13 +136,22 @@ public class Login extends javax.swing.JFrame {
             ps.setString(2, pass);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                id_pegawai = rs.getInt("id_pegawai");
-                Main main = new Main();
-                main.setVisible(true);
-                this.dispose();
+                if(rs.getString("level").equals("admin")){
+                    id_pegawai = rs.getInt("id_pegawai");
+                    System.out.println("ID ADMIN LOGIN: " + id_pegawai);
+                    Main main = new Main(id_pegawai);
+                    main.setVisible(true);
+                    this.dispose();
+                }else{
+                    id_pegawai = rs.getInt("id_pegawai");
+                    System.out.println("ID PEGAWAI LOGIN : " + id_pegawai);
+                    PilihPasien pp = new PilihPasien(id_pegawai);
+                    pp.setVisible(true);
+                    this.dispose();
+                }
                 JOptionPane.showMessageDialog(btnLogin, "You have successfully login!");
             }else{
-                JOptionPane.showMessageDialog(btnLogin, "Wrong username and password");
+                JOptionPane.showMessageDialog(btnLogin, "Wrong username and/or password");
             }
         }catch(SQLException sQLException){
             sQLException.printStackTrace();
@@ -203,7 +202,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables

@@ -12,6 +12,19 @@ package com;
 public class Pegawai {
     private int id_pegawai, id_jabatan;
     private String username, password, nama, no_telp, alamat, level;
+    private Jabatan jabatan;
+
+    public Pegawai(int id_pegawai, int id_jabatan, String username, String password, String nama, String no_telp, String alamat, String level, Jabatan jabatan) {
+        this.id_pegawai = id_pegawai;
+        this.id_jabatan = id_jabatan;
+        this.username = username;
+        this.password = password;
+        this.nama = nama;
+        this.no_telp = no_telp;
+        this.alamat = alamat;
+        this.level = level;
+        this.jabatan = jabatan;
+    }
 
     public Pegawai(int id_pegawai, int id_jabatan, String username, String password, String nama, String no_telp, String alamat, String level) {
         this.id_pegawai = id_pegawai;
@@ -104,6 +117,14 @@ public class Pegawai {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public Jabatan getJabatan() {
+        return jabatan;
+    }
+
+    public void setJabatan(Jabatan jabatan) {
+        this.jabatan = jabatan;
     }
 
     @Override

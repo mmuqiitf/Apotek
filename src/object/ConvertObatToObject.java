@@ -20,8 +20,8 @@ public class ConvertObatToObject {
     public String[][] getObat(){
         List<Obat> myO = new ArrayList<>();
         ExecuteObat executeObat = new ExecuteObat();
-        myO = executeObat.getAllData();
-        String[][] dataObat = new String[myO.size()][9];
+        myO = executeObat.getAllDataWithRelation();
+        String[][] dataObat = new String[myO.size()][12];
         int i=0;
         for(Obat o : myO){
             dataObat[i][0]= ""+o.getId_obat();
@@ -33,6 +33,8 @@ public class ConvertObatToObject {
             dataObat[i][6]= o.getKeterangan();
             dataObat[i][7]= ""+o.getId_golongan();
             dataObat[i][8]= ""+o.getId_supplier();
+            dataObat[i][9]= o.getGolongan().getNama_golongan();
+            dataObat[i][10]= o.getSupplier().getNama();
             i++;
         }
         return dataObat;

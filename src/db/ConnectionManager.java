@@ -15,7 +15,7 @@ import java.sql.DriverManager;
 public class ConnectionManager {
     private Connection con;
     private final String driver = "com.mysql.jdbc.Driver";
-    private final String url = "jdbc:mysql://localhost:3306/apotek_oop"; 
+    private final String url = "jdbc:mysql://localhost:3306/apotek"; 
     private final String username = "root";       
     private final String password = "";  
     public Connection logOn(){

@@ -10,8 +10,24 @@ package com;
  * @author ALIK
  */
 public class Obat {
-    public int id_obat, harga, stok, id_golongan, id_supplier;
-    public String nama, dosis, keterangan, satuan;
+    private int id_obat, harga, stok, id_golongan, id_supplier;
+    private String nama, dosis, keterangan, satuan;
+    private Golongan golongan;
+    private Supplier supplier;
+
+    public Obat(int id_obat, int harga, int stok, int id_golongan, int id_supplier, String nama, String dosis, String keterangan, String satuan, Golongan golongan, Supplier supplier) {
+        this.id_obat = id_obat;
+        this.harga = harga;
+        this.stok = stok;
+        this.id_golongan = id_golongan;
+        this.id_supplier = id_supplier;
+        this.nama = nama;
+        this.dosis = dosis;
+        this.keterangan = keterangan;
+        this.satuan = satuan;
+        this.golongan = golongan;
+        this.supplier = supplier;
+    }
 
     public Obat(int id_obat, int harga, int stok, int id_golongan, int id_supplier, String nama, String dosis, String keterangan, String satuan) {
         this.id_obat = id_obat;
@@ -44,6 +60,11 @@ public class Obat {
         this.id_obat = id_obat;
         this.nama = nama;
         
+    }
+    public Obat(int id_obat, String nama, int harga){
+        this.id_obat = id_obat;
+        this.nama = nama;
+        this.harga = harga;
     }
     public int getId_obat() {
         return id_obat;
@@ -115,6 +136,22 @@ public class Obat {
 
     public void setSatuan(String satuan) {
         this.satuan = satuan;
+    }
+
+    public Golongan getGolongan() {
+        return golongan;
+    }
+
+    public void setGolongan(Golongan golongan) {
+        this.golongan = golongan;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 
     @Override

@@ -20,15 +20,18 @@ public class ConvertTransaksiToObject {
     public String[][] getTransaksi(){
         List<Transaksi> myS = new ArrayList<>();
         ExecuteTransaksi et = new ExecuteTransaksi();
-        myS = et.getAllData();
-        String[][] dataTransaksi = new String[myS.size()][5];
+        myS = et.getAllDataWithRelation();
+        String[][] dataTransaksi = new String[myS.size()][8];
         int i=0;
         for(Transaksi t : myS){
             dataTransaksi[i][0]= ""+t.getId_transaksi();
-            dataTransaksi[i][1]= ""+t.getId_obat();
+            dataTransaksi[i][1]= ""+t.getInvoice();
             dataTransaksi[i][2]= ""+t.getId_pasien();
             dataTransaksi[i][3]= ""+t.getId_pegawai();
-            dataTransaksi[i][4]= ""+t.getQty();
+            dataTransaksi[i][4]= ""+t.getTanggal();
+            dataTransaksi[i][5]= ""+t.getTotal();
+            dataTransaksi[i][6]= ""+t.getPasien().getNama();
+            dataTransaksi[i][7]= ""+t.getPegawai().getNama();
             i++;
         }
         return dataTransaksi;

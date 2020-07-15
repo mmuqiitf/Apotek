@@ -10,24 +10,53 @@ package com;
  * @author ALIK
  */
 public class Transaksi {
-    public int id_transaksi, id_obat, id_pasien, id_pegawai, qty;
+    private int id_transaksi;
+    private String invoice, tanggal;
+    private int id_pasien, id_pegawai, total;
+    private Pasien pasien;
+    private Pegawai pegawai;
 
-    public Transaksi(int id_transaksi, int id_obat, int id_pasien, int id_pegawai, int qty) {
+    public Transaksi(int id_transaksi, String invoice, String tanggal, int id_pasien, int id_pegawai, int total, Pasien pasien, Pegawai pegawai) {
         this.id_transaksi = id_transaksi;
-        this.id_obat = id_obat;
+        this.invoice = invoice;
+        this.tanggal = tanggal;
         this.id_pasien = id_pasien;
         this.id_pegawai = id_pegawai;
-        this.qty = qty;
+        this.total = total;
+        this.pasien = pasien;
+        this.pegawai = pegawai;
     }
 
-    public Transaksi(int id_obat, int id_pasien, int id_pegawai, int qty) {
-        this.id_obat = id_obat;
+    public Transaksi(String invoice, String tanggal, int id_pasien, int id_pegawai, int total) {
+        this.invoice = invoice;
+        this.tanggal = tanggal;
         this.id_pasien = id_pasien;
         this.id_pegawai = id_pegawai;
-        this.qty = qty;
+        this.total = total;
+    }
+
+    public Transaksi(int id_transaksi, String invoice, String tanggal, int id_pasien, int id_pegawai, int total) {
+        this.id_transaksi = id_transaksi;
+        this.invoice = invoice;
+        this.tanggal = tanggal;
+        this.id_pasien = id_pasien;
+        this.id_pegawai = id_pegawai;
+        this.total = total;
+    }
+
+    public Transaksi(String invoice, String tanggal, int id_pasien, int id_pegawai) {
+        this.invoice = invoice;
+        this.tanggal = tanggal;
+        this.id_pasien = id_pasien;
+        this.id_pegawai = id_pegawai;
     }
 
     public Transaksi() {
+    }
+    
+    public Transaksi(int id_transaksi, String invoice) {
+        this.id_transaksi = id_transaksi;
+        this.invoice = invoice;
     }
 
     public int getId_transaksi() {
@@ -38,12 +67,12 @@ public class Transaksi {
         this.id_transaksi = id_transaksi;
     }
 
-    public int getId_obat() {
-        return id_obat;
+    public String getInvoice() {
+        return invoice;
     }
 
-    public void setId_obat(int id_obat) {
-        this.id_obat = id_obat;
+    public void setInvoice(String invoice) {
+        this.invoice = invoice;
     }
 
     public int getId_pasien() {
@@ -62,17 +91,45 @@ public class Transaksi {
         this.id_pegawai = id_pegawai;
     }
 
-    public int getQty() {
-        return qty;
+    public int getTotal() {
+        return total;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public Pasien getPasien() {
+        return pasien;
+    }
+
+    public void setPasien(Pasien pasien) {
+        this.pasien = pasien;
+    }
+
+    public Pegawai getPegawai() {
+        return pegawai;
+    }
+
+    public void setPegawai(Pegawai pegawai) {
+        this.pegawai = pegawai;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 
     @Override
     public String toString() {
-        return "Transaksi{" + "id_transaksi=" + id_transaksi + ", id_obat=" + id_obat + ", id_pasien=" + id_pasien + ", id_pegawai=" + id_pegawai + ", qty=" + qty + '}';
+        return id_transaksi + ": " + invoice;
     }
+    
+    
+    
+    
     
 }
