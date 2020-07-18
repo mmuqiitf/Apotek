@@ -89,6 +89,45 @@ public class ExecuteObat {
         return lsObat;
     }
     
+    public List<Obat> getAllDataStockWithRelation(){
+        String query = "SELECT obat.*,obat.stok - IFNULL(SUM(transaksi_item.qty), 0)  AS sisa, supplier.*, golongan.* FROM obat \n" +
+                        "LEFT JOIN transaksi_item ON  obat.id_obat = transaksi_item.id_obat\n" +
+                        "JOIN supplier ON supplier.id_supplier = obat.id_supplier\n" +
+                        "JOIN golongan ON golongan.id_golongan = obat.id_golongan\n" +
+                        "GROUP BY obat.id_obat ";
+        ConnectionManager conMan = new ConnectionManager();
+        List<Obat> lsObat = new ArrayList<>();
+        Connection conn = conMan.logOn();
+        try {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(query);
+            while(rs.next()){
+                Obat o = new Obat();
+                o.setId_obat(rs.getInt("obat.id_obat"));
+                o.setNama(rs.getString("obat.nama"));
+                o.setHarga(rs.getInt("obat.harga"));
+                o.setDosis(rs.getString("obat.dosis"));
+                o.setStok(rs.getInt("sisa"));
+                o.setSatuan(rs.getString("obat.satuan"));
+                o.setKeterangan(rs.getString("obat.keterangan"));
+                o.setId_golongan(rs.getInt("obat.id_golongan"));
+                o.setId_supplier(rs.getInt("obat.id_supplier"));
+                Golongan g = new Golongan();
+                g.setNama_golongan(rs.getString("golongan.nama_golongan"));
+                g.setWarna(rs.getString("golongan.warna"));
+                Supplier s = new Supplier();
+                s.setNama(rs.getString("supplier.nama"));
+                o.setGolongan(g);
+                o.setSupplier(s);
+                lsObat.add(o);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ExecutePegawai.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        conMan.logOff();
+        return lsObat;
+    }
+    
     public int insertData(Obat o){
         int hasil = 0;
         String query ="insert into obat(nama, harga, dosis, stok, satuan, keterangan, id_golongan, id_supplier) values"

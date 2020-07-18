@@ -65,7 +65,7 @@ public class TransaksiObat extends javax.swing.JFrame {
     }
     private void setDataObat(){
         ConvertObatToObject coto = new ConvertObatToObject();
-        String[][] dataObat = coto.getObat();
+        String[][] dataObat = coto.getObatWithStockLeft();
         tblObat.setModel(new javax.swing.table.DefaultTableModel(
             dataObat,
             new String [] {

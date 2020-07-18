@@ -706,27 +706,28 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
                     .addComponent(jLabel13)
                     .addComponent(jLabel14)
-                    .addComponent(jLabel15))
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel12)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel11)
+                        .addComponent(jLabel10)))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnSubmitObat)
-                        .addGap(26, 26, 26)
-                        .addComponent(btnUpdateObat))
                     .addComponent(btnDeleteObat)
-                    .addComponent(cbbSupplierObat, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbbGolonganObat, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4)
                     .addComponent(txtNamaObat)
                     .addComponent(txtHargaObat)
                     .addComponent(txtDosisObat)
                     .addComponent(txtStokObat)
-                    .addComponent(txtSatuanObat, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSatuanObat)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnSubmitObat)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnUpdateObat))
+                    .addComponent(cbbSupplierObat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbbGolonganObat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -735,29 +736,28 @@ public class Main extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10)
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel11)
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel12)
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel13))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtNamaObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtHargaObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtHargaObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
                         .addGap(18, 18, 18)
-                        .addComponent(txtDosisObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDosisObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
                         .addGap(18, 18, 18)
-                        .addComponent(txtStokObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtStokObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
                         .addGap(18, 18, 18)
-                        .addComponent(txtSatuanObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSatuanObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)))
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbbGolonganObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -772,7 +772,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(btnUpdateObat))
                 .addGap(18, 18, 18)
                 .addComponent(btnDeleteObat)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlObatLayout = new javax.swing.GroupLayout(pnlObat);
@@ -1214,8 +1214,18 @@ public class Main extends javax.swing.JFrame {
         });
 
         btnUpdateTransaksi.setText("Update");
+        btnUpdateTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateTransaksiActionPerformed(evt);
+            }
+        });
 
         btnDeleteTransaksi.setText("Delete");
+        btnDeleteTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteTransaksiActionPerformed(evt);
+            }
+        });
 
         btnDetailTransaksi.setText("Ubah Detail Transaksi");
         btnDetailTransaksi.addActionListener(new java.awt.event.ActionListener() {
@@ -1401,6 +1411,7 @@ public class Main extends javax.swing.JFrame {
         if(hasil >0){
             JOptionPane.showMessageDialog(null, "Data berhasil di simpan");
             setDataPegawai();
+            setDataTransaksi();
         }
         else{
             JOptionPane.showMessageDialog(null, "Data gagal di simpan");
@@ -1446,6 +1457,7 @@ public class Main extends javax.swing.JFrame {
         if(hasil >0){
             JOptionPane.showMessageDialog(null, "Data berhasil di ubah");
             setDataPegawai();
+            setDataTransaksi();
         }
         else{
             JOptionPane.showMessageDialog(null, "Data gagal di ubah");
@@ -1459,6 +1471,7 @@ public class Main extends javax.swing.JFrame {
         if(hasil >0){
             JOptionPane.showMessageDialog(null, "Data berhasil di hapus");
             setDataPegawai();
+            setDataTransaksi();
         }
         else{
             JOptionPane.showMessageDialog(null, "Data gagal di hapus");
@@ -1507,9 +1520,9 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         int row = tblObat.getSelectedRow();
         String id_obat = tblObat.getValueAt(row, 0).toString();
-        String nama = tblObat.getValueAt(row, 3).toString();
-        String harga = tblObat.getValueAt(row, 1).toString();
-        String dosis = tblObat.getValueAt(row, 2).toString();
+        String nama = tblObat.getValueAt(row, 1).toString();
+        String harga = tblObat.getValueAt(row, 2).toString();
+        String dosis = tblObat.getValueAt(row, 3).toString();
         String stok = tblObat.getValueAt(row, 4).toString();
         String satuan = tblObat.getValueAt(row,5).toString();
         String keterangan = tblObat.getValueAt(row,6).toString();
@@ -1578,6 +1591,7 @@ public class Main extends javax.swing.JFrame {
         if(hasil >0){
             JOptionPane.showMessageDialog(null, "Data berhasil di simpan");
             setDataObat();
+            setDataTransaksi();
         }
         else{
             JOptionPane.showMessageDialog(null, "Data gagal di simpan");
@@ -1595,6 +1609,7 @@ public class Main extends javax.swing.JFrame {
         if(hasil >0){
             JOptionPane.showMessageDialog(null, "Data berhasil di ubah");
             setDataObat();
+            setDataTransaksi();
         }
         else{
             JOptionPane.showMessageDialog(null, "Data gagal di ubah");
@@ -1608,6 +1623,7 @@ public class Main extends javax.swing.JFrame {
         if(hasil >0){
             JOptionPane.showMessageDialog(null, "Data berhasil di hapus");
             setDataObat();
+            setDataTransaksi();
         }
         else{
             JOptionPane.showMessageDialog(null, "Data gagal di hapus");
@@ -1715,7 +1731,7 @@ public class Main extends javax.swing.JFrame {
         int hasil = ex.insertData(t);
         if(hasil >0){
             JOptionPane.showMessageDialog(null, "Data berhasil di simpan");
-            setDataObat();
+            setDataTransaksi();
         }
         else{
             JOptionPane.showMessageDialog(null, "Data gagal di simpan");
@@ -1803,6 +1819,38 @@ public class Main extends javax.swing.JFrame {
         txtNoTelpSupp.setText(no_telp);
         taAlamatSupp.setText(alamat);
     }//GEN-LAST:event_tblSupplierMouseClicked
+
+    private void btnUpdateTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateTransaksiActionPerformed
+        // TODO add your handling code here:
+        String invoice = txtInvoice.getText();
+        String tanggal = txtTanggal.getText();
+        String total = txtTotal.getText();
+        int id_pasien = ((Pasien)cbbPasien.getSelectedItem()).getId_pasien();
+        int id_pegawai = ((Pegawai)cbbPegawai.getSelectedItem()).getId_pegawai();
+        Transaksi t = new Transaksi(this.id_transaksi, invoice, tanggal, id_pasien, id_pegawai, Integer.parseInt(total));
+        ExecuteTransaksi ex = new ExecuteTransaksi();
+        int hasil = ex.ubahData(t);
+        if(hasil >0){
+            JOptionPane.showMessageDialog(null, "Data berhasil di ubah");
+            setDataTransaksi();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Data gagal di ubah");
+        }
+    }//GEN-LAST:event_btnUpdateTransaksiActionPerformed
+
+    private void btnDeleteTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteTransaksiActionPerformed
+        // TODO add your handling code here:
+        ExecuteTransaksi ex = new ExecuteTransaksi();
+        int hasil = ex.hapusData(this.id_transaksi);
+        if(hasil >0){
+            JOptionPane.showMessageDialog(null, "Data berhasil di hapus");
+            setDataTransaksi();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Data gagal di hapus");
+        }
+    }//GEN-LAST:event_btnDeleteTransaksiActionPerformed
 
     /**
      * @param args the command line arguments
